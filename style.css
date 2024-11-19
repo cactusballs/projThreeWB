@@ -26,3 +26,7 @@ img{
 .hl {
   color: var(--base);
 }
+
+button{
+  margin-top: 2vh;
+}
