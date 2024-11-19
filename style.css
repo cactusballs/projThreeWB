@@ -7,7 +7,7 @@
 body {
   font-family: 'Spartan', 'Montserrat', 'Futura', sans-serif;
   text-align: center;
-  background: var(--base-color);
+  background: #468847;
   padding: 10vw;
   color:white;
 }
