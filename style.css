@@ -1,0 +1,28 @@
+:root {
+--base-color: #160a6a;
+--spacing: 10px;
+--blur: 5px;
+}
+
+body {
+  font-family: 'Spartan', 'Montserrat', 'Futura', sans-serif;
+  text-align: center;
+  background: var(--base-color);
+  padding: 10vw;
+  color:white;
+}
+
+img{
+  width: 50%;
+  border-radius: 10px;
+  padding: var(--spacing);
+  filter: blur(var(--blur));
+}
+
+.controls{
+  margin-bottom:20px;
+}
+
+.hl {
+  color: var(--base);
+}
