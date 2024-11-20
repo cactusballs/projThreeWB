@@ -1,18 +1,28 @@
-
 const inputs = document.querySelectorAll('.controls input');
+    const restoreButton = document.getElementById('restoreButton');
 
-function handleUpdate(){
-  const suffix = this.dataset.sizing || ''; 
-  document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
-}
+    const defaults = {
+      spacing: '10',
+      blur: '5',
+      base: '#160a6a'
+    };
 
-inputs.forEach(input => input.addEventListener('change', handleUpdate));
-inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
 
-const reverts = document.getElementById('.restore');
+    function handleUpdate() {
+      const suffix = this.dataset.sizing || ''; 
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    }
 
-const reset = () => {
-  document.documentElement.style.setProperty = ' ';
-}
+    
+    function restoreDefaults() {
+      inputs.forEach(input => {
+        const name = input.name;
+        input.value = defaults[name]; // Restore input value
+        const suffix = input.dataset.sizing || ''; // Handle 'px' suffix
+        document.documentElement.style.setProperty(`--${name}`, defaults[name] + suffix);
+      });
+    }
 
-reverts.forEach(revert => revert.addEventListener('onclick', reset))
+    // Attach event listeners
+    inputs.forEach(input => input.addEventListener('input', handleUpdate));
+    restoreButton.addEventListener('click', restoreDefaults);
